@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package person;
+option go_package = "./;person";
+
+message Person {
+  string person_name = 1;  // 建议使用下划线的命名方式
+  int64 person_age = 2;
+}
+
+//用于定义客户端和服务器之间的远程过程调用（RPC）接口
+service Greeter {
+  rpc SayHello(HelloRequest) returns (HelloReply);
+}
+
+message HelloRequest  {
+  string data = 1;
+}
+
+message HelloReply {
+  string data = 1;
+}
+
